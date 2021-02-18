@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .input-group{
+        @apply border rounded bg-gray-100 flex items-center h-full;
+    }
+
+    .input-group-label{
+        @apply px-3 flex-none text-center;
+    }
+
+    .input-group-input{
+        @apply flex-auto bg-white border-0 focus:outline-none h-10 px-3;
+    }
+}

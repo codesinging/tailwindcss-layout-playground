@@ -1,22 +1,68 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div class="container mx-auto">
+    <h1 class="text-center text-3xl font-bold py-3">
+      TailwindCSS Layout Playground
+    </h1>
+
+    <div class="border rounded p-4">
+      <div class="input-group">
+        <label class="input-group-label w-1/4">Items count</label>
+        <input
+          type="text"
+          v-model.number="itemsCount"
+          class="input-group-input"
+        />
+      </div>
+
+      <div class="input-group mt-3">
+        <label class="input-group-label w-1/4">Container classes</label>
+        <input
+          type="text"
+          v-model="containerCss"
+          class="input-group-input"
+        />
+      </div>
+
+      <div class="input-group mt-3">
+        <label class="input-group-label w-1/4">Common item classes</label>
+        <input
+          type="text"
+          v-model="commonItemCss"
+          class="input-group-input"
+        />
+      </div>
+
+      <div class="input-group mt-3" v-for="n in itemsCount" :key="n">
+        <label class="input-group-label w-1/4">Item {{ n }} classes</label>
+        <input
+          type="text"
+          v-model="itemCss[n-1]"
+          class="input-group-input"
+        />
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container mx-auto bg-gray-200 mt-4">
+    <div :class="containerCss">
+      <div v-for="n in itemsCount" :key="n" :class="[commonItemCss, itemCss[n-1]]">{{ n }}</div>
+    </div>
+  </div>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+<script>
+export default {
+  data() {
+    return {
+      containerCss: "grid grid-cols-3 gap-4",
+      commonItemCss: "bg-blue-500 text-white flex items-center justify-center",
+      itemsCount: 6,
+      itemCss: [],
+    };
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
