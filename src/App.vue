@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       containerCss: "grid grid-cols-3 gap-4",
-      commonItemCss: "bg-blue-500 text-white flex items-center justify-center",
+      commonItemCss: "bg-blue-500 text-white flex items-center justify-center w-10 h-10",
       itemsCount: 6,
       itemCss: [],
     };
