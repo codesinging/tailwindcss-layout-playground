@@ -49,6 +49,13 @@
       <div v-for="n in itemsCount" :key="n" :class="[commonItemCss, itemCss[n-1]]">{{ n }}</div>
     </div>
   </div>
+
+  <div class="container mx-auto mt-10">
+      <div class="flex justify-center space-x-4 border-t py-4">
+        <a href="https://tailwindchina.com" target="_blank" class="text-gray-500 hover:text-gray-600 hover:underline">Tailwind CSS 中文网</a>
+        <a href="https://docs.tailwindchina.com" target="_blank" class="text-gray-500 hover:text-gray-600 hover:underline">Tailwind CSS 中文文档</a>
+      </div>
+  </div>
 </template>
 
 <script>
